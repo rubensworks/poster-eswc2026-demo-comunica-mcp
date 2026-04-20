@@ -12,40 +12,25 @@
     <div id="app">
 
         <!-- ===== HEADER ===== -->
-        <header class="bg-dark" style="grid-column: 1/13; grid-row: 1/3; display: flex; align-items: center; padding: 14px 20px; gap: 16px; overflow: hidden; box-sizing: border-box;">
+        <header class="bg-dark" style="grid-column: 1/13; grid-row: 1/3; display: flex; align-items: center; padding: 12px 20px; gap: 16px; overflow: hidden; box-sizing: border-box;">
             <!-- Center: Title + Authors (takes most space) -->
             <div style="flex: 1; text-align: center; min-width: 0;">
-                <div property="schema:name schema:headline" style="color: white; font-size: 22px; font-weight: bold; line-height: 1.25; margin-bottom: 5px;">
-                    Comunica MCP SPARQL:<br/>Improving AI Agent Accuracy with<br/>SPARQL-based Knowledge Graph Access
+                <div property="schema:name schema:headline" style="color: white; font-weight: bold; line-height: 1.15; margin-bottom: 4px;">
+                    <div style="font-size: 42px; letter-spacing: -0.5px;">Comunica MCP SPARQL</div>
+                    <div style="font-size: 18px; font-weight: normal; opacity: 0.92; margin-top: 2px;">Improving AI Agent Accuracy with SPARQL-based Knowledge Graph Access</div>
                 </div>
-                <div class="authors" style="font-size: 13px; margin-top: 4px;">
+                <div class="authors" style="font-size: 13px; margin-top: 5px;">
                     <a property="schema:author" href="https://www.rubensworks.net/" resource="https://www.rubensworks.net/#me" style="color: #ffd0d0;">Ruben Taelman</a>,&ensp;
                     <a property="schema:author" href="https://jitsedesmet.be/" resource="https://jitsedesmet.be/profile#me" style="color: #ffd0d0;">Jitse De Smet</a>
                 </div>
                 <div class="affiliations" style="color: #fdd; font-size: 11px; margin-top: 2px;">IDLab, Ghent University – imec, Belgium</div>
-                <div style="margin-top: 3px; font-size: 10px; color: #fdd;">ESWC 2026 – Posters &amp; Demos</div>
+                <div style="margin-top: 2px; font-size: 10px; color: #fdd;">ESWC 2026 – Posters &amp; Demos</div>
             </div>
 
             <!-- Right: Comunica logo + QR code -->
-            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 8px;">
-                <!-- Comunica logo (blocks + text, white on dark) -->
-                <svg width="90" height="88" viewBox="0 0 90 88" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Row 1: full-width block -->
-                    <rect x="5" y="0" width="80" height="13" rx="2" fill="white"/>
-                    <!-- Row 2: two blocks -->
-                    <rect x="5" y="16" width="37" height="10" rx="2" fill="white"/>
-                    <rect x="48" y="16" width="37" height="10" rx="2" fill="white"/>
-                    <!-- Row 3: two tall blocks -->
-                    <rect x="5" y="29" width="37" height="18" rx="2" fill="white"/>
-                    <rect x="48" y="29" width="37" height="18" rx="2" fill="white"/>
-                    <!-- Row 4: two short blocks -->
-                    <rect x="5" y="50" width="37" height="10" rx="2" fill="white"/>
-                    <rect x="48" y="50" width="37" height="10" rx="2" fill="white"/>
-                    <!-- Row 5: full-width block -->
-                    <rect x="5" y="63" width="80" height="10" rx="2" fill="white"/>
-                    <!-- COMUNICA text -->
-                    <text x="45" y="84" text-anchor="middle" font-size="13" fill="white" font-weight="bold" font-family="Candara, sans-serif" letter-spacing="2">COMUNICA</text>
-                </svg>
+            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                <!-- Real Comunica logo (white shapes on transparent, sits on dark bg) -->
+                <img src="/img/logos/comunica_logo.svg" alt="Comunica" width="80" height="80" style="display:block;"/>
                 <!-- QR code to article -->
                 <div style="text-align: center;">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&amp;data=https://rubensworks.github.io/article-eswc2026-demo-comunica-mcp/"
@@ -230,7 +215,7 @@
         </section>
 
         <!-- ===== CONCLUSION (right, rows 10-12) ===== -->
-        <section class="bg-light" style="grid-column: 8/13; grid-row: 10/12; margin-right: 10px;" rel="schema:hasPart" resource="#conclusion">
+        <section class="bg-light" style="grid-column: 8/13; grid-row: 10/12; margin-right: 10px; overflow: hidden;" rel="schema:hasPart" resource="#conclusion">
             <h2 property="schema:name" style="font-size: 14px;">Conclusion</h2>
             <ul style="font-size: 11.5px;">
                 <li>
@@ -246,15 +231,15 @@
                     Open-source (MIT), on npm:
                 </li>
             </ul>
-            <div style="margin-top: 6px; text-align: center;">
+            <div style="margin-top: 5px; text-align: center;">
                 <a href="https://www.npmjs.com/package/@comunica/mcp-sparql" target="_blank"
                    style="display: inline-block; background: #8B1E1E; color: white; border-radius: 5px; padding: 4px 10px; font-size: 10.5px; font-weight: bold; font-family: monospace; white-space: nowrap;">
                     @comunica/mcp-sparql
                 </a>
-                <div style="margin-top:5px;">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=65x65&amp;data=https://www.npmjs.com/package/%40comunica/mcp-sparql"
-                         alt="QR to npm" width="65" height="65" style="border-radius:3px; background:white; padding:2px;"/>
-                    <div style="font-size: 8.5px; color:#555; margin-top:2px;">npmjs.com/@comunica/mcp-sparql</div>
+                <div style="margin-top:4px;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=55x55&amp;data=https://www.npmjs.com/package/%40comunica/mcp-sparql"
+                         alt="QR to npm" width="55" height="55" style="border-radius:3px; background:white; padding:2px;"/>
+                    <div style="font-size: 8px; color:#555; margin-top:1px;">npmjs.com/@comunica/mcp-sparql</div>
                 </div>
             </div>
         </section>
@@ -262,8 +247,8 @@
         <!-- ===== FOOTER BAR ===== -->
         <div class="footer-bar">
             <div class="footer-links">
-                <div>🌐 <a href="https://comunica.dev/">comunica.dev</a></div>
-                <div>📦 <a href="https://www.npmjs.com/package/@comunica/mcp-sparql">npmjs.com/package/@comunica/mcp-sparql</a></div>
+                <div>🌐 <a href="https://comunica.dev/">https://comunica.dev</a></div>
+                <div>📦 <a href="https://www.npmjs.com/package/@comunica/mcp-sparql">https://npmjs.com/package/@comunica/mcp-sparql</a></div>
             </div>
             <div class="footer-logos">
                 <img src="/img/logos/logo-ugent-white.svg" alt="UGent" style="height: 36px;"/>
