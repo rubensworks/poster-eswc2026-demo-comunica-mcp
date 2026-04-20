@@ -125,7 +125,7 @@
                 <!-- Any KG  rect y=230, bottom=280 -->
                 <rect x="258" y="230" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
                 <text x="288" y="247" text-anchor="middle" font-size="13">🗄️</text>
-                <text x="288" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Any KG</text>
+                <text x="288" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Other KGs</text>
                 <text x="288" y="271" text-anchor="middle" font-size="7.5" fill="#555">HDT · TPF</text>
 
                 <!-- Arrows from Comunica down to KG nodes -->
@@ -141,17 +141,18 @@
         <section class="bg-light" style="grid-column: 1/6; grid-row: 6/9; margin-left: 10px;" rel="schema:hasPart" resource="#howworks">
             <h2 property="schema:name" style="font-size: 16px;">How It Works</h2>
             <p style="font-size: 14px; margin: 0 0 5px;">
-                Requires only a <strong>single config change</strong> in tools such as Claude, Copilot, or ChatGPT:
+                Requires only a <strong>single config change</strong>:
             </p>
-            <pre style="background:#f5e8e8; border-radius:6px; padding:6px 8px; font-size:10.5px; margin:3px 0; line-height:1.5; overflow:hidden;"><code>{
+            <pre style="background:#f5e8e8; border-radius:6px; padding:6px 8px; font-size:11.5px; margin:3px 0; line-height:1.5; overflow:hidden;"><code>{
   "mcpServers": {
     "comunica": {
       "command": "npx",
-      "args": ["-y", "@comunica/mcp-sparql"]
+      "args": ["-y", "@comunica/mcp-sparql",
+               "--mode", "stdio"]
     }
   }
 }</code></pre>
-            <p style="font-size: 11px; margin: 3px 0 0; color: #555;">Works with Claude Desktop, GitHub Copilot, VS Code, and any MCP client.</p>
+            <p style="font-size: 11px; margin: 3px 0 0; color: #555;">Works with any MCP client, such as Claude Desktop, GitHub Copilot, VS Code, &mldr;</p>
         </section>
 
         <!-- ===== TOOLS EXPOSED (full width, rows 8-10) ===== -->
