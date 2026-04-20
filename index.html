@@ -4,81 +4,259 @@
     <meta charset="UTF-8"/>
     <link rel="icon" type="image/svg+xml" href="/img/logos/logo-ugent.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>My Awesome Poster</title>
+    <title>Comunica MCP SPARQL Poster – ESWC 2026</title>
 </head>
 <body prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# foaf: http://xmlns.com/foaf/0.1/ owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# org: http://www.w3.org/ns/org# schema: http://schema.org/ cite: http://purl.org/spar/cito/"
       typeof="schema:Poster">
 <div id="poster-wrapper">
     <div id="app">
-        <header class="bg-dark" style="grid-column: 1/13; grid-row: 1/3;">
-            <div style="margin: 30px;">
-                <h1 property="schema:name schema:headline" class="title">My Awesome Poster</h1>
-                <h2 class="authors">
-                    <a property="schema:author" href="https://smessaert.be/" resource="https://smessaert.be/#me">Ieben Smessaert</a>,
-                    <a property="schema:author" href="https://julianrojas.org/" resource="https://julianrojas.org/#me">Julián Rojas Meléndez</a>,
-                    <a property="schema:author" href="https://pietercolpaert.be/" resource="https://pietercolpaert.be/#me">Pieter Colpaert</a>
-                </h2>
-                <p class="affiliations">IDLab, Department of Electronics and Information Systems, Ghent University - imec,
-                    Ghent, Belgium</p>
+
+        <!-- ===== HEADER ===== -->
+        <header class="bg-dark" style="grid-column: 1/13; grid-row: 1/3; display: flex; align-items: center; padding: 12px 20px; gap: 16px; overflow: hidden; box-sizing: border-box;">
+            <!-- Center: Title + Authors (takes most space) -->
+            <div style="flex: 1; text-align: center; min-width: 0">
+                <div property="schema:name schema:headline" style="color: white; font-weight: bold; line-height: 1.15; margin-bottom: 4px;">
+                    <div style="font-size: 60px; letter-spacing: -0.5px;">Comunica MCP SPARQL</div>
+                    <div style="font-size: 24px; font-weight: normal; opacity: 0.92; margin-top: 2px;">Improving the Accuracy of AI Agents<br \>using SPARQL-based Access to Decentralized Knowledge Graphs</div>
+                </div>
+                <div class="authors" style="font-size: 13px; margin-top: 5px;">
+                    <a property="schema:author" href="https://www.rubensworks.net/" resource="https://www.rubensworks.net/#me" style="color: #ffd0d0;">Ruben Taelman</a>,&ensp;
+                    <a property="schema:author" href="https://jitsedesmet.be/" resource="https://jitsedesmet.be/profile#me" style="color: #ffd0d0;">Jitse De Smet</a>
+                </div>
+            </div>
+
+            <!-- Right: Comunica logo + QR code -->
+            <div style="flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+                <!-- Real Comunica logo (white shapes on transparent, sits on dark bg) -->
+                <img src="/img/logos/comunica_logo.svg" alt="Comunica" width="80" height="80" style="display:block;"/>
+                <!-- QR code to article -->
+                <div style="text-align: center;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&amp;data=https://rubensworks.github.io/article-eswc2026-demo-comunica-mcp/"
+                         alt="QR to paper" width="70" height="70" style="display:block; border-radius: 3px; background:white; padding:3px;"/>
+                    <div style="color: #fdd; font-size: 9px; margin-top: 2px;">Full paper</div>
+                </div>
             </div>
         </header>
 
-        <section class="bg-light" style="grid-column: 1/9; grid-row: 3/6; margin-left: 30px;" rel="schema:hasPart" resource="#introduction">
-            <h2 property="schema:name">Introduction</h2>
-            <ul>
-                <li>
-                    <i class="fa-solid fa-circle-exclamation fa-2xs li-icon"></i> Lorem ipsum dolor sit amet.
+        <!-- ===== MOTIVATION (left, rows 3-6) ===== -->
+        <section class="bg-light" style="grid-column: 1/6; grid-row: 3/6; margin-left: 10px;" rel="schema:hasPart" resource="#motivation">
+            <h2 property="schema:name" style="font-size: 16px;">Why AI Agents + Knowledge Graphs?</h2>
+            <ul style="font-size: 14px;">
+                <li style="margin-top: 0.7em;">
+                    <i class="fa-solid fa-triangle-exclamation fa-2xs li-icon"></i>
+                    <strong>LLMs hallucinate</strong> and generate plausible but incorrect answers based solely on training data.
                 </li>
-                <li style="margin-top: 1.5em;">
-                    <i class="fa-solid fa-question-circle fa-2xs li-icon"></i> Ex sapien vitae pellentesque sem placerat in id.
-                    <ul>
-                        <li style="margin-top: 0.5em;"><i class="fa-solid fa-share fa-2xs li-icon" style="transform: scale(1, -1)"></i> Pretium tellus duis convallis tempus leo eu aenean.</li>
-                        <li style="margin-top: 1em;"><i class="fa-solid fa-share fa-2xs li-icon" style="transform: scale(1, -1)"></i> Semper vel class aptent taciti sociosqu ad litora.</li>
-                    </ul>
+                <li style="margin-top: 0.7em;">
+                    <i class="fa-solid fa-diagram-project fa-2xs li-icon"></i>
+                    <strong>Knowledge Graphs</strong> provide accurate, structured, live data (DBpedia, Wikidata, Solid pods, …).
+                </li>
+                <li style="margin-top: 0.7em;">
+                    <i class="fa-solid fa-plug fa-2xs li-icon"></i>
+                    <strong>Model Context Protocol (MCP)</strong> lets AI agents call external tools at runtime without retraining.
+                </li>
+                <li style="margin-top: 0.7em;">
+                    <i class="fa-solid fa-bullseye fa-2xs li-icon"></i>
+                    <strong>Goal:</strong> expose <em>any</em> Knowledge Graph via a SPARQL-based MCP interface using <strong>Comunica</strong>.
                 </li>
             </ul>
         </section>
 
-        <section class="bg-accent" style="grid-column: 1/9; grid-row: 6/9; margin-left: 30px;" rel="schema:hasPart" resource="#icons">
-            <h2 property="schema:name" style="color: white;">Using icons</h2>
-            <p>To add icons to your lists, you can use FontAwesome icons. For example:</p>
-            <pre><code>&lt;i class="fa-solid fa-circle-exclamation<br/> fa-2xs li-icon"&gt;&lt;/i&gt;</code></pre>
-            <p>For more information on how to use FontAwesome icons, visit <a href="https://fontawesome.com/icons" target="_blank">fontawesome.com/icons</a>.</p>
+        <!-- ===== FIGURE: AI Agent → KGs (right, rows 3-9) ===== -->
+        <section class="bg-light" style="grid-column: 6/13; grid-row: 3/9; padding: 8px; margin-right: 10px; overflow: hidden;" rel="schema:hasPart" resource="#figure">
+            <h2 property="schema:name" style="text-align:center; margin-bottom: 2px; font-size: 16px;">AI Agent Querying Knowledge Graphs</h2>
+
+            <!-- SVG architecture figure — viewBox 1.5× taller than original -->
+            <svg viewBox="0 0 320 390" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+                <defs>
+                    <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                        <polygon points="0 0, 7 2.5, 0 5" fill="#8B1E1E"/>
+                    </marker>
+                </defs>
+
+                <!-- AI Agent box (top center) -->
+                <rect x="85" y="6" width="150" height="44" rx="8" fill="#8B1E1E"/>
+                <text x="160" y="22" text-anchor="middle" font-size="11" fill="white">🤖  AI Agent (LLM)</text>
+                <text x="160" y="38" text-anchor="middle" font-size="9" fill="#fdd">Claude · Copilot · ChatGPT</text>
+
+                <!-- Arrows between agent and Comunica (more vertical space) -->
+                <line x1="148" y1="50" x2="148" y2="100" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
+                <line x1="172" y1="100" x2="172" y2="50" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
+                <!-- "MCP call" left of the down-arrow; "SPARQL results" right of the up-arrow -->
+                <text x="144" y="78" text-anchor="end" font-size="8" fill="#8B1E1E">MCP call</text>
+                <text x="176" y="78" text-anchor="start" font-size="8" fill="#8B1E1E">SPARQL results</text>
+
+                <!-- Comunica MCP SPARQL box (center) -->
+                <rect x="50" y="102" width="220" height="46" rx="8" fill="#FDF5F5" stroke="#8B1E1E" stroke-width="1.5"/>
+                <!-- Comunica logo -->
+                <image href="/img/logos/comunica_red.svg" x="57" y="107" width="34" height="34"/>
+                <text x="175" y="121" text-anchor="middle" font-size="10" fill="#8B1E1E" font-weight="bold">Comunica MCP SPARQL</text>
+                <text x="175" y="136" text-anchor="middle" font-size="8" fill="#555">SPARQL 1.2 · Federation · Link Traversal</text>
+
+                <!-- SPARQL label on fan-out arrows -->
+                <text x="160" y="168" text-anchor="middle" font-size="8" fill="#8B1E1E" font-style="italic">SPARQL queries</text>
+
+                <!-- KG nodes — rounded rectangles 60×50, spread further apart -->
+                <!-- offsets: icon at +17, label at +30, subtitle at +41 (all baseline y) -->
+
+                <!-- DBpedia  rect y=230, bottom=280 -->
+                <rect x="2" y="230" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="32" y="247" text-anchor="middle" font-size="13">🌐</text>
+                <text x="32" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">DBpedia</text>
+                <text x="32" y="271" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
+
+                <!-- Wikidata  rect y=265, bottom=315 -->
+                <rect x="66" y="265" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="96" y="282" text-anchor="middle" font-size="13">📚</text>
+                <text x="96" y="295" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Wikidata</text>
+                <text x="96" y="306" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
+
+                <!-- Solid Pod  rect y=285, bottom=335 -->
+                <rect x="130" y="285" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="160" y="302" text-anchor="middle" font-size="13">🔒</text>
+                <text x="160" y="315" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Solid Pod</text>
+                <text x="160" y="326" text-anchor="middle" font-size="7.5" fill="#555">+ auth</text>
+
+                <!-- Linked Data  rect y=265, bottom=315 -->
+                <rect x="194" y="265" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="224" y="282" text-anchor="middle" font-size="13">🔗</text>
+                <text x="224" y="295" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Linked Data</text>
+                <text x="224" y="306" text-anchor="middle" font-size="7.5" fill="#555">RDF docs</text>
+
+                <!-- Any KG  rect y=230, bottom=280 -->
+                <rect x="258" y="230" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="288" y="247" text-anchor="middle" font-size="13">🗄️</text>
+                <text x="288" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Other KGs</text>
+                <text x="288" y="271" text-anchor="middle" font-size="7.5" fill="#555">HDT · TPF</text>
+
+                <!-- Arrows from Comunica down to KG nodes -->
+                <line x1="100" y1="148" x2="32"  y2="232" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="130" y1="148" x2="96"  y2="267" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="160" y1="148" x2="160" y2="287" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="190" y1="148" x2="224" y2="267" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="220" y1="148" x2="288" y2="232" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+            </svg>
         </section>
 
-        <section class="bg-light" style="grid-column: 9/13; grid-row: 3/9; margin-right: 30px;" rel="schema:hasPart" resource="#getting-started">
-            <h2 property="schema:name">Getting Started</h2>
-            <p>You can configure your theme colors in <span class="text-secondary">css/style.scss</span>.</p>
-            <p>You can choose different section layouts by using the grid-column and grid-row CSS properties.</p>
-            <p>By default, a 12 by 12 grid is configured. Spanning the full width is done with the value <span class="text-secondary">1/13</span> which means, from the start of grid 1 to the start of grid 13 (or thus end of 12).</p>
-            <p>For example, to create a section that spans the full width and 3 rows in height, you can use the following CSS properties:</p>
-            <pre><code>grid-column: 1/13;<br/>grid-row: 3/6;</code></pre>
-            <p>To add some spacing, you can use margin-left and margin-right properties.</p>
-            <p>For more information on CSS Grid, visit <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">css-tricks.com/snippets/css/complete-guide-grid/</a>.</p>
+        <!-- ===== HOW IT WORKS (left, rows 6-8) ===== -->
+        <section class="bg-light" style="grid-column: 1/6; grid-row: 6/9; margin-left: 10px;" rel="schema:hasPart" resource="#howworks">
+            <h2 property="schema:name" style="font-size: 16px;">How It Works</h2>
+            <p style="font-size: 14px; margin: 0 0 5px;">
+                Requires only a <strong>single config change</strong>:
+            </p>
+            <pre style="background:#f5e8e8; border-radius:6px; padding:6px 8px; font-size:11.5px; margin:3px 0; line-height:1.5; overflow:hidden;"><code>{
+  "mcpServers": {
+    "comunica": {
+      "command": "npx",
+      "args": ["-y", "@comunica/mcp-sparql",
+               "--mode", "stdio"]
+    }
+  }
+}</code></pre>
+            <p style="font-size: 11px; margin: 3px 0 0; color: #555;">Works with any MCP client, such as Claude Desktop, GitHub Copilot, VS Code, &mldr;</p>
         </section>
 
-        <section class="bg-light" style="grid-column: 1/13; grid-row: 9/12; margin-left: 30px; margin-right: 30px;" rel="schema:hasPart" resource="#conclusion">
-            <h2 property="schema:name">Results and Conclusion</h2>
+        <!-- ===== TOOLS EXPOSED (full width, rows 8-10) ===== -->
+        <section class="bg-accent" style="grid-column: 1/13; grid-row: 9/10; padding: 8px 14px; margin-left: 10px; margin-right: 10px;" rel="schema:hasPart" resource="#tools">
+            <h2 property="schema:name" style="color: white; margin-bottom: 5px; font-size: 16px;">MCP Tools Exposed to AI Agents</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
+                <div style="background: rgba(255,255,255,0.85); border-radius: 8px; padding: 7px;">
+                    <div style="display:flex; align-items:center; gap:5px; margin-bottom:3px;">
+                        <i class="fa-solid fa-magnifying-glass" style="color:#8B1E1E; font-size:15px;"></i>
+                        <strong style="font-size:12px;"><code>query-sparql</code></strong>
+                    </div>
+                    <p style="font-size:10.5px; margin:0; color:#333;">Execute SPARQL queries over <strong>one or more remote sources</strong>: SPARQL endpoints, Linked Data docs, Solid pods, TPF interfaces, HDT files. Supports updates, federation, HTTP proxies, and authentication.</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.85); border-radius: 8px; padding: 7px;">
+                    <div style="display:flex; align-items:center; gap:5px; margin-bottom:3px;">
+                        <i class="fa-solid fa-file-code" style="color:#8B1E1E; font-size:15px;"></i>
+                        <strong style="font-size:12px;"><code>query-sparql-rdf</code></strong>
+                    </div>
+                    <p style="font-size:10.5px; margin:0; color:#333;">Execute SPARQL queries over a <strong>serialized RDF dataset</strong> as a string. Accepts any RDF media type (Turtle, JSON-LD, N-Triples, …).</p>
+                </div>
+            </div>
+            <p style="font-size: 10px; margin: 5px 0 0; color: #fff;">
+                <i class="fa-solid fa-circle-info" style="margin-right:3px;"></i>
+                Also: <code style="background:rgba(255,255,255,0.3); padding:1px 3px; border-radius:3px;">mcp-sparql-solid</code>,
+                <code style="background:rgba(255,255,255,0.3); padding:1px 3px; border-radius:3px;">mcp-sparql-link-traversal</code>,
+                <code style="background:rgba(255,255,255,0.3); padding:1px 3px; border-radius:3px;">mcp-sparql-file</code>,
+                <code style="background:rgba(255,255,255,0.3); padding:1px 3px; border-radius:3px;">mcp-sparql-hdt</code>
+            </p>
         </section>
 
+        <!-- ===== RESULTS (left, rows 10-12) ===== -->
+        <section class="bg-light" style="grid-column: 1/8; grid-row: 10/12; margin-left: 10px;" rel="schema:hasPart" resource="#results">
+            <h2 property="schema:name" style="font-size: 16px;">Preliminary Findings</h2>
+            <ul style="font-size: 11.5px;">
+                <li>
+                    <i class="fa-solid fa-check fa-2xs li-icon"></i>
+                    LLMs <strong>effectively query DBpedia and Wikidata</strong> (internalized during pretraining).
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-solid fa-triangle-exclamation fa-2xs li-icon"></i>
+                    LLMs <strong>struggle with less-known KGs</strong> (UniProt, DBLP) unless explicitly guided.
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-solid fa-triangle-exclamation fa-2xs li-icon"></i>
+                    LLMs can <strong>hallucinate SPARQL endpoint URLs</strong> and fail at federated queries.
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-solid fa-flask fa-2xs li-icon"></i>
+                    <em>"What movies do Brad Pitt and DiCaprio both star in?"</em><br \>
+                    → Claude alone: 1 answer.
+                    With Comunica MCP: <strong>2 accurate answers</strong> via DBpedia.
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-solid fa-road fa-2xs li-icon"></i>
+                    Future: KG discovery, schema tools, guided federation.
+                </li>
+            </ul>
+        </section>
 
-        <div class="logo" style="grid-column: 3/5;">
-            <a href="https://www.ugent.be/en" target="_blank">
-                <img src="/img/logos/logo-ugent.png" alt="UGent logo" style="height: 55px;"/>
-            </a>
+        <!-- ===== CONCLUSION (right, rows 10-12) ===== -->
+        <section class="bg-light" style="grid-column: 8/13; grid-row: 10/12; margin-right: 10px; overflow: hidden;" rel="schema:hasPart" resource="#conclusion">
+            <h2 property="schema:name" style="font-size: 16px;">Conclusion</h2>
+            <ul style="font-size: 11.5px;">
+                <li>
+                    <i class="fa-solid fa-star fa-2xs li-icon"></i>
+                    Connects AI agents to <strong>one or more</strong> KGs via SPARQL.
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-solid fa-shield-halved fa-2xs li-icon"></i>
+                    Towards <strong>trustworthy, explainable agentic AI</strong>.
+                </li>
+                <li style="margin-top: 0.55em;">
+                    <i class="fa-brands fa-npm fa-2xs li-icon"></i>
+                    Open-source (MIT), on npm: <a href="https://www.npmjs.com/package/@comunica/mcp-sparql" target="_blank"
+                   style="display: inline-block; background: #8B1E1E; color: white; border-radius: 5px; padding: 4px 10px; font-size: 8.5px; font-weight: bold; font-family: monospace; white-space: nowrap;">
+                    @comunica/mcp-sparql
+                </a>
+                </li>
+            </ul>
+            <div style="margin-top: 5px; text-align: center;">
+                <div style="margin-top:4px;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=55x55&amp;data=https://www.npmjs.com/package/%40comunica/mcp-sparql"
+                         alt="QR to npm" width="55" height="55" style="border-radius:3px; background:white; padding:2px;"/>
+                    <div style="font-size: 8px; color:#555; margin-top:1px;">npmjs.com/@comunica/mcp-sparql</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER BAR ===== -->
+        <div class="footer-bar">
+            <div class="footer-links">
+                <div>🌐 <a href="https://comunica.dev/">https://comunica.dev</a></div>
+                <div>📦 <a href="https://www.npmjs.com/package/@comunica/mcp-sparql">https://npmjs.com/package/@comunica/mcp-sparql</a></div>
+            </div>
+            <div class="footer-logos">
+                <img src="/img/logos/logo-ugent-white.svg" alt="UGent" style="height: 36px;"/>
+                <img src="/img/logos/logo-imec-white.svg" alt="imec" style="height: 24px;"/>
+                <img src="/img/logos/logo-idlab-white.svg" alt="IDLab" style="height: 30px;"/>
+            </div>
         </div>
-        <div class="logo" style="grid-column: 5/8;">
-            <a href="https://www.imec-int.com/en" target="_blank">
-                <img src="/img/logos/logo-imec.png" alt="imec logo" style="height: 35px;"/>
-            </a>
-        </div>
-        <div class="logo" style="grid-column: 8/11;">
-            <a href="https://idlab.technology/" target="_blank">
-                <img src="/img/logos/logo-idlab.png" alt="IDLab logo" style="height: 40px; margin-bottom: -5px;"/>
-            </a>
-        </div>
+
     </div>
 </div>
 <script type="module" src="/js/main.js"></script>
 </body>
 </html>
+
