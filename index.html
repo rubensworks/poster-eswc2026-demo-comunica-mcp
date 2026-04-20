@@ -61,12 +61,12 @@
             </ul>
         </section>
 
-        <!-- ===== FIGURE: AI Agent → KGs (right, rows 3-8) ===== -->
-        <section class="bg-light" style="grid-column: 6/13; grid-row: 3/9; padding: 8px; margin-right: 10px;" rel="schema:hasPart" resource="#figure">
+        <!-- ===== FIGURE: AI Agent → KGs (right, rows 3-9) ===== -->
+        <section class="bg-light" style="grid-column: 6/13; grid-row: 3/9; padding: 8px; margin-right: 10px; overflow: hidden;" rel="schema:hasPart" resource="#figure">
             <h2 property="schema:name" style="text-align:center; margin-bottom: 2px; font-size: 16px;">AI Agent Querying Knowledge Graphs</h2>
 
-            <!-- SVG architecture figure — all text fits within its shapes -->
-            <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+            <!-- SVG architecture figure — viewBox 1.5× taller than original -->
+            <svg viewBox="0 0 320 390" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
                 <defs>
                     <marker id="arr" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
                         <polygon points="0 0, 7 2.5, 0 5" fill="#8B1E1E"/>
@@ -78,64 +78,62 @@
                 <text x="160" y="22" text-anchor="middle" font-size="11" fill="white">🤖  AI Agent (LLM)</text>
                 <text x="160" y="38" text-anchor="middle" font-size="9" fill="#fdd">Claude · Copilot · ChatGPT</text>
 
-                <!-- Arrows between agent and Comunica -->
-                <line x1="148" y1="50" x2="148" y2="84" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
-                <line x1="172" y1="84" x2="172" y2="50" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
-                <text x="112" y="71" font-size="8" fill="#8B1E1E">SPARQL results</text>
-                <text x="176" y="71" font-size="8" fill="#8B1E1E">MCP call</text>
+                <!-- Arrows between agent and Comunica (more vertical space) -->
+                <line x1="148" y1="50" x2="148" y2="100" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
+                <line x1="172" y1="100" x2="172" y2="50" stroke="#8B1E1E" stroke-width="1.5" marker-end="url(#arr)"/>
+                <!-- "MCP call" left of the down-arrow; "SPARQL results" right of the up-arrow -->
+                <text x="144" y="78" text-anchor="end" font-size="8" fill="#8B1E1E">MCP call</text>
+                <text x="176" y="78" text-anchor="start" font-size="8" fill="#8B1E1E">SPARQL results</text>
 
                 <!-- Comunica MCP SPARQL box (center) -->
-                <rect x="50" y="86" width="220" height="46" rx="8" fill="#FDF5F5" stroke="#8B1E1E" stroke-width="1.5"/>
-                <!-- mini Comunica blocks icon -->
-                <rect x="60" y="94" width="16" height="4" rx="1" fill="#8B1E1E"/>
-                <rect x="60" y="100" width="7" height="5" rx="1" fill="#8B1E1E"/>
-                <rect x="69" y="100" width="7" height="5" rx="1" fill="#8B1E1E"/>
-                <rect x="60" y="107" width="16" height="3" rx="1" fill="#8B1E1E"/>
-                <text x="165" y="106" text-anchor="middle" font-size="10" fill="#8B1E1E" font-weight="bold">Comunica MCP SPARQL</text>
-                <text x="165" y="122" text-anchor="middle" font-size="8" fill="#555">SPARQL 1.2 · Federation · Link Traversal</text>
+                <rect x="50" y="102" width="220" height="46" rx="8" fill="#FDF5F5" stroke="#8B1E1E" stroke-width="1.5"/>
+                <!-- Comunica logo -->
+                <image href="/img/logos/comunica_red.svg" x="57" y="107" width="34" height="34"/>
+                <text x="175" y="121" text-anchor="middle" font-size="10" fill="#8B1E1E" font-weight="bold">Comunica MCP SPARQL</text>
+                <text x="175" y="136" text-anchor="middle" font-size="8" fill="#555">SPARQL 1.2 · Federation · Link Traversal</text>
 
                 <!-- SPARQL label on fan-out arrows -->
-                <text x="160" y="150" text-anchor="middle" font-size="8" fill="#8B1E1E" font-style="italic">SPARQL queries</text>
+                <text x="160" y="168" text-anchor="middle" font-size="8" fill="#8B1E1E" font-style="italic">SPARQL queries</text>
 
-                <!-- KG nodes — rounded rectangles 60×50, text coords are rect_y + fixed offsets -->
+                <!-- KG nodes — rounded rectangles 60×50, spread further apart -->
                 <!-- offsets: icon at +17, label at +30, subtitle at +41 (all baseline y) -->
 
-                <!-- DBpedia  rect y=160, bottom=210 -->
-                <rect x="2" y="160" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
-                <text x="32" y="177" text-anchor="middle" font-size="13">🌐</text>
-                <text x="32" y="190" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">DBpedia</text>
-                <text x="32" y="201" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
+                <!-- DBpedia  rect y=230, bottom=280 -->
+                <rect x="2" y="230" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="32" y="247" text-anchor="middle" font-size="13">🌐</text>
+                <text x="32" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">DBpedia</text>
+                <text x="32" y="271" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
 
-                <!-- Wikidata  rect y=185, bottom=235 -->
-                <rect x="66" y="185" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
-                <text x="96" y="202" text-anchor="middle" font-size="13">📚</text>
-                <text x="96" y="215" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Wikidata</text>
-                <text x="96" y="226" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
+                <!-- Wikidata  rect y=265, bottom=315 -->
+                <rect x="66" y="265" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="96" y="282" text-anchor="middle" font-size="13">📚</text>
+                <text x="96" y="295" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Wikidata</text>
+                <text x="96" y="306" text-anchor="middle" font-size="7.5" fill="#555">SPARQL</text>
 
-                <!-- Solid Pod  rect y=197, bottom=247 -->
-                <rect x="130" y="197" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
-                <text x="160" y="214" text-anchor="middle" font-size="13">🔒</text>
-                <text x="160" y="227" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Solid Pod</text>
-                <text x="160" y="238" text-anchor="middle" font-size="7.5" fill="#555">+ auth</text>
+                <!-- Solid Pod  rect y=285, bottom=335 -->
+                <rect x="130" y="285" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="160" y="302" text-anchor="middle" font-size="13">🔒</text>
+                <text x="160" y="315" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Solid Pod</text>
+                <text x="160" y="326" text-anchor="middle" font-size="7.5" fill="#555">+ auth</text>
 
-                <!-- Linked Data  rect y=185, bottom=235 -->
-                <rect x="194" y="185" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
-                <text x="224" y="202" text-anchor="middle" font-size="13">🔗</text>
-                <text x="224" y="215" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Linked Data</text>
-                <text x="224" y="226" text-anchor="middle" font-size="7.5" fill="#555">RDF docs</text>
+                <!-- Linked Data  rect y=265, bottom=315 -->
+                <rect x="194" y="265" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="224" y="282" text-anchor="middle" font-size="13">🔗</text>
+                <text x="224" y="295" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Linked Data</text>
+                <text x="224" y="306" text-anchor="middle" font-size="7.5" fill="#555">RDF docs</text>
 
-                <!-- Any KG  rect y=160, bottom=210 -->
-                <rect x="258" y="160" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
-                <text x="288" y="177" text-anchor="middle" font-size="13">🗄️</text>
-                <text x="288" y="190" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Any KG</text>
-                <text x="288" y="201" text-anchor="middle" font-size="7.5" fill="#555">HDT · TPF</text>
+                <!-- Any KG  rect y=230, bottom=280 -->
+                <rect x="258" y="230" width="60" height="50" rx="8" fill="#CC3333" opacity="0.12" stroke="#CC3333" stroke-width="1.5"/>
+                <text x="288" y="247" text-anchor="middle" font-size="13">🗄️</text>
+                <text x="288" y="260" text-anchor="middle" font-size="9" fill="#8B1E1E" font-weight="bold">Any KG</text>
+                <text x="288" y="271" text-anchor="middle" font-size="7.5" fill="#555">HDT · TPF</text>
 
                 <!-- Arrows from Comunica down to KG nodes -->
-                <line x1="100" y1="132" x2="32"  y2="162" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
-                <line x1="130" y1="132" x2="100" y2="187" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
-                <line x1="160" y1="132" x2="160" y2="199" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
-                <line x1="190" y1="132" x2="220" y2="187" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
-                <line x1="220" y1="132" x2="288" y2="162" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="100" y1="148" x2="32"  y2="232" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="130" y1="148" x2="96"  y2="267" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="160" y1="148" x2="160" y2="287" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="190" y1="148" x2="224" y2="267" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
+                <line x1="220" y1="148" x2="288" y2="232" stroke="#8B1E1E" stroke-width="1.2" marker-end="url(#arr)"/>
             </svg>
         </section>
 
